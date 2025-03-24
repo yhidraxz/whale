@@ -1,4 +1,4 @@
-export class subNumber {
+export class SubNumber {
   constructor(name, should, date, recurrent, isDecimal, value) {
     this.name = name;
     this.should = should;
@@ -27,5 +27,3 @@ export class subNumber {
     return (calcNumber = Math.round(calcNumber * (1 - this.value)));
   }
 }
-
-export const subNumbers = [];

@@ -1,23 +1,24 @@
-import { subNumber } from "./functions.js";
 let bridge = 0;
-import { date, newBadDate } from "./date.js";
-import { today } from "./date.js";
+import { today, formatDate } from "./date.js";
+import { SubNumber } from "./functions.js";
+// import { receivedData /*{subNumbers}*/ } from "./server.js";
 
-let vendaFiat = new subNumber("vendaFiat", "add", date, false, false, 120000);
-let imposto = new subNumber("comissao", "subtract", date, false, true, 11);
-let custo = new subNumber("custo", "subtract", newBadDate, false, false, 40000);
-let custoHoje = new subNumber(
-  "custohoje",
-  "subtract",
-  date,
-  false,
-  false,
-  50000
-);
+let rawSubNum = "";
 
 let subNumbers = [];
 
-subNumbers.push(vendaFiat, imposto, custo, custoHoje);
+let date = formatDate(new Date(rawSubNum.date + "T12:00"));
+
+{
+  let subNumber = new SubNumber(
+    rawSubNum.name,
+    rawSubNum.should,
+    date,
+    rawSubNum.isDecimal,
+    rawSubNum.value
+  );
+  subNumbers.push(subNumber);
+}
 
 for (let subNumber of subNumbers) {
   if (subNumber.date == today) {
@@ -36,3 +37,8 @@ for (let subNumber of subNumbers) {
 }
 
 console.log(bridge);
+export function processData() {
+  let key = "sou foda";
+  console.log("tu é foda");
+  return key;
+}
