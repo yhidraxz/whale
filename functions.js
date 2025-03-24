@@ -29,9 +29,3 @@ export class subNumber {
 }
 
 export const subNumbers = [];
-
-let vendaFiat = new subNumber("vendaFiat", "add", "", false, false, 120000);
-let imposto = new subNumber("comissao", "subtract", "", false, true, 11);
-let custo = new subNumber("custo", "subtract", "", false, false, 40000);
-
-subNumbers.push(vendaFiat, imposto, custo);
