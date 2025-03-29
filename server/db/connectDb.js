@@ -1,0 +1,16 @@
+import mongoose from "mongoose";
+
+mongoose.set("strictQuery", false);
+
+let MONGO_URL =
+  "mongodb+srv://gustavonasc58:H2n3fYDuMXUx84yJ@cluster0.ujwdznr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+
+export const connectDb = async () => {
+  try {
+    await mongoose.connect(MONGO_URL);
+    console.log("connected this shit");
+  } catch {
+    console.log("cant connecvt this shit bro");
+    process.exit(1);
+  }
+};

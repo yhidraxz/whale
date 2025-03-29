@@ -1,0 +1,33 @@
+{
+  "name": "whale",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "serverstart": "SET DEBUG=express-locallibrary-tutorial:* & npm run devstart",
+    "devstart": "nodemon ./bin/www",
+    "start": "node ./bin/www",
+    "lint": "eslint",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@eslint/js": "^9.23.0",
+    "eslint": "^9.23.0",
+    "globals": "^16.0.0"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "^4.21.2",
+    "express-generator": "^4.16.1",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "mongodb": "^6.15.0",
+    "mongoose": "^8.13.0",
+    "morgan": "~1.9.1"
+  }
+}
