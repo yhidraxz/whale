@@ -4,10 +4,14 @@ const SubNumberSchema = new mongoose.Schema({
   name: String,
   should: String,
   date: String,
-  recurrent: String,
   isDecimal: Boolean,
+  tax: {
+    haveTax: Boolean,
+    taxValue: Number,
+  },
   value: Number,
+  taxedValue: Number,
 });
 
-const SubNumber = mongoose.model("SubNumbers", SubNumberSchema, "SubNumbers");
+const SubNumber = mongoose.model("SubNumber", SubNumberSchema);
 export { SubNumber };

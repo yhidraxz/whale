@@ -1,5 +1,5 @@
 export function TotalNumberForDate(refSubNumArr) {
-  refSubNumArr.sort((a, b) => a.date.getTime() - b.date.getTIme());
+  refSubNumArr.sort((a, b) => a.date.getTime() - b.date.getTime());
 
   let balanceMap = {};
 
@@ -12,7 +12,7 @@ export function TotalNumberForDate(refSubNumArr) {
       balanceMap[dateKey] = previousValue;
     }
 
-    balanceMap[dateKey] += calcTotalNumber(previousValue, subNumber);
+    balanceMap[dateKey] = calcTotalNumber(previousValue, subNumber);
 
     previousValue = balanceMap[dateKey];
   }
@@ -30,8 +30,6 @@ function calcTotalNumber(bridge, subNumber) {
     bridge = subNumber.addTax(bridge);
   } else if (subNumber.should == "add" && !subNumber.isDecimal) {
     bridge = subNumber.add(bridge);
-  } else if (subNumber.should == "subtract" && subNumber.isDecimal) {
-    bridge = subNumber.subtractTax(bridge);
   } else if (subNumber.should == "subtract" && !subNumber.isDecimal) {
     bridge = subNumber.subtract(bridge);
   }

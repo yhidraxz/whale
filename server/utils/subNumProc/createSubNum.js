@@ -1,15 +1,25 @@
-import { formatDate } from "./formatDate.js";
-
 class SubNumObj {
-  constructor(name, should, date, recurrent, isDecimal, value) {
+  constructor(name, should, date, isDecimal, { haveTax, taxValue }, value) {
     this.name = name;
     this.should = should;
     this.date = date;
-    this.recurrent = recurrent;
     this.isDecimal = isDecimal;
-    this.value = value;
+    this.tax = {
+      haveTax,
+      taxValue,
+    };
+
     if (isDecimal) {
-      this.value = this.value / 100;
+      this.taxedValue = value / 100;
+      this.fullValue = null;
+    }
+    if (!isDecimal && !haveTax) {
+      this.fullValue = value;
+      this.taxedValue = value;
+    }
+    if (!isDecimal && haveTax) {
+      this.fullValue = value;
+      this.taxedValue = this.subtractTax();
     }
   }
 
@@ -22,37 +32,34 @@ class SubNumObj {
   }
 
   subtract(calcNumber) {
-    return (calcNumber = Math.round(calcNumber - this.value));
+    return (calcNumber = Math.round(calcNumber - this.taxedValue));
   }
 
-  subtractTax(calcNumber) {
-    return (calcNumber = Math.round(calcNumber * (1 - this.value)));
+  subtractTax() {
+    return Math.round(this.fullValue * (1 - this.tax.taxValue / 100));
   }
 }
 
 function createSubNumArray(subNumbersArray) {
   let refSubNumArr = [];
-  console.log(
-    `running the create subnumber, the current param is: ${subNumbersArray}, trying to convert to class...`
-  );
+
   for (let rawSubNum of subNumbersArray) {
-    // let date = formatDate(new Date(rawSubNum.date + "T12:00"));
+    let date = new Date(rawSubNum.date);
+
+    console.log(date);
 
     let refSubNum = new SubNumObj(
       rawSubNum.name,
       rawSubNum.should,
-      rawSubNum.date,
-      rawSubNum.should,
+      date,
       rawSubNum.isDecimal,
+      rawSubNum.tax,
       rawSubNum.value
     );
-    console.log(
-      "the constructor was called, the object returned is: ",
-      refSubNum
-    );
+
     refSubNumArr.push(refSubNum);
   }
-  console.log("the current array is: ", refSubNumArr);
+
   return refSubNumArr;
 }
 
