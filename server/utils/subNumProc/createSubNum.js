@@ -24,11 +24,11 @@ class SubNumObj {
   }
 
   add(calcNumber) {
-    return (calcNumber = Math.round(calcNumber + this.value));
+    return (calcNumber = Math.round(calcNumber + this.taxedValue));
   }
 
   addTax(calcNumber) {
-    return (calcNumber = Math.round(calcNumber + calcNumber * this.value));
+    return (calcNumber = Math.round(calcNumber + calcNumber * this.taxedValue));
   }
 
   subtract(calcNumber) {
