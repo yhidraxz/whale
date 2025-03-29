@@ -1,11 +1,19 @@
 export function TotalNumberForDate(refSubNumArr) {
-  refSubNumArr.sort((a, b) => a.date.getTime() - b.date.getTime());
+  refSubNumArr.sort((a, b) => {
+    a.date.getTime() - b.date.getTime();
+    if (a.isDecimal) {
+      return -1;
+    } else if (b.isDecimal) {
+      return -1;
+    }
+  });
 
   let balanceMap = {};
 
   let previousValue = 0;
 
   for (let subNumber of refSubNumArr) {
+    console.log("going through:", subNumber);
     const dateKey = subNumber.date;
 
     if (!balanceMap[dateKey]) {
