@@ -4,6 +4,7 @@ import path from "path";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
 import subNumberRouter from "./controllers/subNumbers/_routes.js";
+import userRouter from "./controllers/user/_routes.js";
 import { connectDb } from "./db/connectDb.js";
 import { fileURLToPath } from "url";
 
@@ -28,6 +29,7 @@ app.use(cookieParser());
 // app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/SubNumber", subNumberRouter);
+app.use("/User", userRouter);
 
 // app.use("/users", usersRouter);
 

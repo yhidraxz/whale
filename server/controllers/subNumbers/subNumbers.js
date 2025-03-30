@@ -1,4 +1,4 @@
-import { SubNumber } from "../../models/schemas/subNumbers.js";
+import { SubNumber } from "../../models/schemas/subNumberSchema.js";
 import { TotalNumberForDate } from "../../utils/subNumProc/calcSubNum.js";
 import { createSubNumArray } from "../../utils/subNumProc/createSubNum.js";
 
