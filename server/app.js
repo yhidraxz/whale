@@ -7,6 +7,7 @@ import subNumberRouter from "./controllers/subNumbers/_routes.js";
 import userRouter from "./controllers/user/_routes.js";
 import { connectDb } from "./db/connectDb.js";
 import { fileURLToPath } from "url";
+import cors from "cors";
 
 connectDb();
 
@@ -26,6 +27,7 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(cors());
 // app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/SubNumber", subNumberRouter);

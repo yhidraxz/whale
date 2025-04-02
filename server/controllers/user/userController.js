@@ -37,4 +37,8 @@ const createUser = async (req, res) => {
   }
 };
 
+// const logUser = async(req, res) => {
+
+//}
+
 export { createUser };
