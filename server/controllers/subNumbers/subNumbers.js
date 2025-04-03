@@ -4,7 +4,7 @@ import { createSubNumArray } from "../../utils/subNumProc/createSubNum.js";
 import {
   getExpenseValue,
   getGrossValue,
-} from "../../utils/subNumProc/totalSum.js";
+} from "../../utils/totalNumberProc/totalSum.js";
 
 const createSubNumber = async (req, res) => {
   const result = new SubNumber(req.body);

@@ -4,7 +4,14 @@ module.exports = {
   content: ["./app/**/*.{js,jsx,ts,tsx}"],
   presets: [require("nativewind/preset")],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        robotoRegular: ["Roboto-Regular"],
+        robotoBold: ["Roboto-SemiBold"],
+        helveticaLight: ["Helvetica-Light"],
+        helveticaBold: ["Helvetica-Bold"],
+      },
+    },
   },
   plugins: [],
 };
