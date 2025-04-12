@@ -8,8 +8,8 @@ module.exports = {
       fontFamily: {
         robotoRegular: ["Roboto-Regular"],
         robotoBold: ["Roboto-SemiBold"],
-        helveticaLight: ["Helvetica-Light"],
-        helveticaBold: ["Helvetica-Bold"],
+        helveticaLight: ["HelveticaNeueLight"],
+        helveticaBold: ["HelveticaNeueBold"],
       },
     },
   },
